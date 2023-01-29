@@ -3,8 +3,8 @@ Instructions before using the program
 1. Enter your MySQL username in line 13 where it says <Enter your username>
 2. Enter your MySQL password in line 14 where it says <Enter your password>
 3. Make a database named restaurant in your MySQL
-Now you are good to run this program
-Enjoy!
+4. If you are trying owner the password is "mypassword"
+Now you are good to run this program. Enjoy!
 '''
 
 import mysql.connector
@@ -62,7 +62,7 @@ def owner():
     #Remove an item
     elif choice == '3':
         remove_item()
-    # Exit the program
+    # Exit the owner tab
     elif choice == '4':
         main()
     # Handle invalid input
@@ -83,7 +83,7 @@ def customer():
     # Place an order
     elif choice == '2':
         place_order()
-    # Exit the program
+    # Exit the customer tab
     elif choice == '3':
         main()
     # Handle invalid input
@@ -104,8 +104,6 @@ def create_menu_table():
         
         )
     """
-
-    # Execute the query
     cursor.execute(query)
 
 
@@ -116,13 +114,11 @@ def create_menu_table():
 def view_menu_owner():
     # SQL query to select all items from the menu table
     query = "SELECT * FROM menu"
-
-    # Execute the query
     cursor.execute(query)
-
+    
     # Fetch all results
     results = cursor.fetchall()
-
+    
     # Print the menu items
     print("-------- Menu --------")
     for result in results:
